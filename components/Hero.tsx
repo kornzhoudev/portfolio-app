@@ -24,8 +24,8 @@ const Hero = (props: Props) => {
         alt=''
       /> */}
       <Image
-        className='relative rounded-full mx-auto object-cover '
-        src='/IMG_0002.JPG'
+        className='relative rounded-full mx-auto object-cover'
+        src='/korn1.jpeg'
         width={144}
         height={144}
         alt=''
