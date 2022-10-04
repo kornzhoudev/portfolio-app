@@ -3,12 +3,19 @@ import BackgroundCircles from './BackgroundCircles';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PageInfo } from '../typing';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const Hero = (props: Props) => {
+const Hero = ({ pageInfo }: Props) => {
   const [text, count] = useTypewriter({
-    words: ['Hello, I am Korn Zhou', 'I am a Full Stack Developer'],
+    words: [
+      `Hello, The Name's ${pageInfo?.name}`,
+      'I am a Full Stack Developer',
+    ],
     loop: true,
     delaySpeed: 2000,
   });
@@ -18,21 +25,21 @@ const Hero = (props: Props) => {
     text-center overflow-hidden'
     >
       <BackgroundCircles />
-      {/* <img
+      <img
         className='relative rounded-full h-36 w-36 mx-auto object-cover '
-        src='IMG_0002.JPG'
+        src={urlFor(pageInfo?.heroImage).url()}
         alt=''
-      /> */}
-      <Image
+      />
+      {/* <Image
         className='relative rounded-full mx-auto object-cover'
         src='/korn1.jpeg'
         width={144}
         height={144}
         alt=''
-      />
+      /> */}
       <div className='z-20'>
         <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>
-          FullStack Developer
+          {pageInfo?.role}
         </h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
           <span className='mr-3'>{text}</span>

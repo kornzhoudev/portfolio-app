@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { PageInfo } from '../typing';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,7 +36,7 @@ const About = (props: Props) => {
           opacity: 1,
         }}
         viewport={{ once: true }}
-        src='korn.jpeg'
+        src={urlFor(pageInfo?.profilePic).url()}
         // object-cover
         className='-mb-20 md:mb-0 flex-shrink-0 rounded-full w-56 h-56
         md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[500px]'
@@ -40,19 +44,10 @@ const About = (props: Props) => {
       <div className='space-y-10 px-0 md:px-10'>
         <h4 className='text-4xl font-semibold'>
           Here is a{' '}
-          <span className='underline decoration-[#F7AB0A]/50'>title</span>{' '}
+          <span className='underline decoration-[#F7AB0A]/50'>little</span>{' '}
           background
         </h4>
-        <p className='text-base'>
-          Hi, my name is korn. Thank you for giving me the opportunity to be
-          interviewd for this position today. Before I worked at Async Working
-          as full-stack developer. Our tech stack are react and nodejs. 1. With
-          my 4 years of design and 2 years of IT education it make me have
-          strong understanding of UX/Ui design priciple, I believe this is
-          really important for front-end development. Bulit courtcanva project
-          from stratch. It gives me hands-on full-stack experience in React and
-          nodejs framework.
-        </p>
+        <p className='text-base'>{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );
