@@ -9,7 +9,6 @@ type Props = {
 };
 
 const ExperienceCard = ({ experience }: Props) => {
-  console.log(experience);
   return (
     <article
       className='flex flex-col rounded-lg items-center space-y-7
