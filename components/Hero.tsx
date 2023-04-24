@@ -10,6 +10,8 @@ type Props = {
   pageInfo: PageInfo;
 };
 
+// replace hero
+
 const Hero = ({ pageInfo }: Props) => {
   const [text, count] = useTypewriter({
     words: [
